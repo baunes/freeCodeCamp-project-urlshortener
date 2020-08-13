@@ -6,6 +6,7 @@ class Database {
     this.options = {
       dbName: db,
       useCreateIndex: true,
+      useFindAndModify: false,
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }

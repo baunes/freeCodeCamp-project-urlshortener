@@ -1,4 +1,7 @@
 const Repository = require('../repository')
+const ParameterRepository = require('../../parameters/repository')
+
+const PARAMETER_LAST_CODE_USED = 'shorturl.code.lastused'
 
 function isValidURL(url) {
   const pattern = new RegExp(
@@ -27,8 +30,8 @@ class ShortUrl {
       return Promise.resolve({ error: 'invalid URL' })
     }
 
-    return Repository.findLastCode()
-      .then((code) => code + 1)
+    return ParameterRepository.findAndIncrement(PARAMETER_LAST_CODE_USED)
+      .then((parameter) => parameter.valueN)
       .then((code) => Repository.create(createShortUrl(code, url)))
       .then((document) => ({
         original_url: document.url,
