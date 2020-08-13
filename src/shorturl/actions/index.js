@@ -1,8 +1,8 @@
-const ShortUrl = require('./ShortUrl')
+const CreateShortUrl = require('./CreateShortUrl')
 const GetShortUrl = require('./GetShortUrl')
 
 const ACTIONS = {
-  shortUrl: ShortUrl,
+  createShortUrl: CreateShortUrl,
   getShortUrl: GetShortUrl,
 }
 
