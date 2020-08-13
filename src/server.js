@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -24,7 +23,7 @@ app.get('/', (req, res) => {
 app.use(Routes)
 
 // Basic Configuration
-new Database(process.env.MONGO_URI)
+new Database(process.env.MONGO_URI, process.env.MONGO_DB)
   .connect()
   .then(() => {
     console.log('Connected to Mongo')

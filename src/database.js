@@ -1,9 +1,11 @@
 const mongoose = require('mongoose')
 
-module.exports = class Database {
-  constructor(connection) {
+class Database {
+  constructor(connection, db) {
     this.connection = connection
     this.options = {
+      dbName: db,
+      useCreateIndex: true,
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }
@@ -13,3 +15,5 @@ module.exports = class Database {
     return mongoose.connect(this.connection, this.options)
   }
 }
+
+module.exports = Database

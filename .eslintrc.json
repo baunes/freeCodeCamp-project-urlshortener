@@ -10,6 +10,7 @@
     "ecmaVersion": 11
   },
   "rules": {
-    "prettier/prettier": ["warn"]
+    "prettier/prettier": ["warn"],
+    "no-console": "off"
   }
 }
