@@ -10,4 +10,11 @@ router.post('/api/shorturl/new', (req, res) => {
     .catch((error) => res.json(error))
 })
 
+router.get('/api/shorturl/:code', (req, res) => {
+  ACTIONS.getShortUrl
+    .do(req.params.code)
+    .then((response) => res.redirect(response.url))
+    .catch(() => res.status(404).send('Not found'))
+})
+
 module.exports = router
